@@ -1,7 +1,6 @@
 import java.util.HashMap;
 
 public class StepTracker {
-
     HashMap<String, Integer[]> stepTrackerByMonth;
     int stepGoals = 10000;
 

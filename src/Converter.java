@@ -12,5 +12,4 @@ public class Converter {
         double totalKcal = (steps * 50) / 1000;
         return totalKcal;
     }
-
 }
