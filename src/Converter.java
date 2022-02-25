@@ -1,15 +1,10 @@
 public class Converter {
 
-    public Converter() {
-    }
-
     public static double convertStepsToDistance (int steps) {
-        double totalDistance = steps * 0.00075;
-        return totalDistance;
+        return steps * 0.00075;
     }
 
     public static double convertStepsToKcal (int steps) {
-        double totalKcal = (steps * 50) / 1000;
-        return totalKcal;
+        return (steps * 50) / 1000;
     }
 }

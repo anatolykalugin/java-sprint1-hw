@@ -56,8 +56,8 @@ public class StepTracker {
     }
 
     void saveSteps(String month, int day, int steps) {
-        if ((stepTrackerByMonth.containsKey(month.toLowerCase())) && (day > 0) && (day <= 30) && (steps >= 0)) {
-            Integer[] addingMonth = stepTrackerByMonth.get(month.toLowerCase());
+        if ((stepTrackerByMonth.containsKey(month)) && (day > 0) && (day <= 30) && (steps >= 0)) {
+            Integer[] addingMonth = stepTrackerByMonth.get(month);
             addingMonth[day - 1] = steps;
             System.out.println("Шаги сохранены!");
         } else {
@@ -66,17 +66,16 @@ public class StepTracker {
     }
 
     void showStats(String month) {
-        Converter converter = new Converter();
-        if (stepTrackerByMonth.containsKey(month.toLowerCase())) {
-            Integer[] showingMonth = stepTrackerByMonth.get(month.toLowerCase());
+        if (stepTrackerByMonth.containsKey(month)) {
+            Integer[] showingMonth = stepTrackerByMonth.get(month);
 
             showSteps(showingMonth);
             System.out.println("Всего за данный месяц было пройдено " + findSumSteps(showingMonth) + " шагов.");
             System.out.println("В этом месяце в среднем Вы проходили " + findAverageSteps(findSumSteps(showingMonth),
                                 showingMonth.length) + " шагов в день.");
             System.out.println("В данном месяце Вы прошагали дистанцию в "
-                                + converter.convertStepsToDistance(findSumSteps(showingMonth)) + " километров");
-            System.out.println("Также, Вы успели сжечь " + converter.convertStepsToKcal(findSumSteps(showingMonth))
+                                + Converter.convertStepsToDistance(findSumSteps(showingMonth)) + " километров");
+            System.out.println("Также, Вы успели сжечь " + Converter.convertStepsToKcal(findSumSteps(showingMonth))
                                 + " килокалорий. Хорошая работа!");
             System.out.println("Ваша лучшая серия составляет " + findMaxStreak(showingMonth) + " дней!");
         } else {

@@ -21,11 +21,11 @@ public class Main {
                 int day = scanner.nextInt();
                 System.out.println("Пожалуйста, введите количество шагов:");
                 int steps = scanner.nextInt();
-                stepTracker.saveSteps(month, day, steps);
+                stepTracker.saveSteps(month.toLowerCase(), day, steps);
             } else if (command == 2) {
                 System.out.println("Пожалуйста, введите название нужного месяца:");
                 String month = scanner.next();
-                stepTracker.showStats(month);
+                stepTracker.showStats(month.toLowerCase());
             } else if (command == 3) {
                 System.out.println("Текущая цель: " + stepTracker.stepGoals + " шагов в день.");
                 System.out.println("Пожалуста, введите новую цель:");
